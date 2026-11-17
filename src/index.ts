@@ -1,7 +1,10 @@
 import express from "express";
+import cors from "cors";
 
 const port = 8080
 const app = express();
+
+app.use(cors({origin: process.env.LOCAL_CLIENT_URL}))
 
 app.use(express.json())
 
