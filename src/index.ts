@@ -4,7 +4,11 @@ import cors from "cors";
 const port = 8080
 const app = express();
 
-app.use(cors({origin: process.env.LOCAL_CLIENT_URL}))
+const allowedOrigins = [process.env.LOCAL_CLIENT_URL,
+        process.env.CLIENT_URL].filter((origin) : origin is string => Boolean(origin))
+app.use(cors({
+    origin: allowedOrigins
+}))
 
 app.use(express.json())
 
