@@ -14,3 +14,4 @@ app.use("/test", (req, res) => {
 
 app.listen(port, () => console.log(`API started on port ${port}`));
 
+console.log("prod in Azure")
