@@ -1,7 +1,10 @@
 import express from "express";
+import cors from "cors";
 
 const port = 8080
 const app = express();
+
+app.use(cors({origin: process.env.LOCAL_CLIENT_URL}))
 
 app.use(express.json())
 
@@ -11,3 +14,4 @@ app.use("/test", (req, res) => {
 
 app.listen(port, () => console.log(`API started on port ${port}`));
 
+console.log("prod in Azure")
